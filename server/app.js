@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
+const models = require('./models');
 // const app = express();
 // app.listen(3000, () => console.log("server Connected on port 3000"));
 
