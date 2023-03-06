@@ -14,6 +14,8 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 15px 10%;
+    position: relative;
+    box-shadow: 0.3px 5px 7.2px 0.8px rgb(77 77 77 / 81%);
 }
 .logo{
     cursor: pointer;
