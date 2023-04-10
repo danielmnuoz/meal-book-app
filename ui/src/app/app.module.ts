@@ -11,6 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './user-dashboard/dashboard.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDividerModule} from "@angular/material/divider";
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     NavbarComponent,
     LoginComponent,
     DashboardComponent,
-    CalendarComponent
+    CalendarComponent,
+    SideNavbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,13 @@ import { CalendarComponent } from './calendar/calendar.component';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
-    })
+    }),
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

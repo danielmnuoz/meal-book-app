@@ -1,0 +1,57 @@
+mat-toolbar{
+  background-color: #283618;
+  height: 12%;
+}
+
+mat-sidenav {
+  background-color: #283618;
+  border-right: none;
+  color: white;
+  width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+}
+mat-sidenav-container {
+  height: 100%;
+  background-color: #283618;
+}
+
+.sidenav-menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+mat-icon  {
+  color: white;
+  font-size: larger;
+  margin: 8px;
+}
+
+span {
+  color: white;
+  font-weight: lighter;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+}
+
+app-navbar {
+  float: right;
+  width: 70%;
+  margin-left: 20%;
+}
+
+mat-sidenav-content{
+  display: flex;
+  height: 100%;
+  background-color: #FEFAE0;
+}
+
+
