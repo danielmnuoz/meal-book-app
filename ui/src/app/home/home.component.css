@@ -1,6 +1,10 @@
 html{
     height: 100%;
 }
+body{
+    height: 100%;
+}
+
 .container{
     display:flex;
     flex-flow:column;
@@ -12,9 +16,32 @@ html{
     bottom: 0;
     padding: 0;
     min-width: 100%;
+    background: #FEFAE0;
+    overflow-y: scroll;
+}
+.header-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    color: #fff;
+    text-decoration: none;
+}
+.body-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+}
+.banner-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
 }
 .home-container{
-    display: flex;
+    display: grid;
     height: 100%;
     background-color: #FEFAE0;
 }
@@ -24,4 +51,57 @@ app-side-navbar {
   height: 100%;
   flex-flow: column;
   float: left;
+  background: #FEFAE0;
 }
+.banner-container{
+    position: relative;
+    width: 100%;
+    grid-row: 1;
+}
+.banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner-text-overlay {
+    position: absolute;
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity:1;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button {
+    width: 150px;
+    background-color: #DDA15E;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .text-container{
+    position: relative;
+    width: 75%;
+    background-color:#F3E7DB;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    padding: 30px;
+    grid-row: 2;
+  }

@@ -22,5 +22,4 @@ export class LoginComponent implements OnInit {
       container.classList.remove("sign-up-mode");
     });
   }
-
 }
