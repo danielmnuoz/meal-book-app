@@ -18,3 +18,8 @@ html{
     height: 100%;
     background-color: #FEFAE0;
 }
+.sidenav{
+    grid-column: 1;
+    width: 100%;
+    padding: 0px;
+}
