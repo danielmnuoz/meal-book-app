@@ -18,6 +18,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { RecipeUploadComponent } from './recipe-upload/recipe-upload.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     DashboardComponent,
     CalendarComponent,
     SideNavbarComponent,
+    RecipeUploadComponent,
 
   ],
   imports: [
@@ -38,6 +42,7 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    HttpClientModule,
     NoopAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
