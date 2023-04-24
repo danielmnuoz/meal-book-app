@@ -2,8 +2,9 @@ html{
     height: 100%;
 }
 .container{
-    display:flex;
+    display:grid;
     flex-flow:column;
+    grid-template-columns: max-content;
     height:100%;
     margin:0;
     top: 0;
@@ -12,9 +13,11 @@ html{
     bottom: 0;
     padding: 0;
     min-width: 100%;
+    background: #FEFAE0;
 }
 .dashboard-container{
-    display: flex;
+    grid-column: 2;
+    justify-content: center;
     height: 100%;
     background-color: #FEFAE0;
 }
@@ -22,4 +25,13 @@ html{
     grid-column: 1;
     width: 100%;
     padding: 0px;
+}
+.calendar-container{
+    background-color: #FEFAE0;
+}
+.hidden{
+    display:none;
+}
+.result{
+    max-width:80px; 
 }

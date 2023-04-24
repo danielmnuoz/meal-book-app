@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +17,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import {  FlatpickrModule } from 'angularx-flatpickr';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,7 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     LoginComponent,
     DashboardComponent,
     CalendarComponent,
-    SideNavbarComponent,
-
+    SideNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,10 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     MatSidenavModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
