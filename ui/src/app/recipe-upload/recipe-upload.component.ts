@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,20 +6,6 @@ import { NgForm } from '@angular/forms';
   templateUrl: './recipe-upload.component.html',
   styleUrls: ['./recipe-upload.component.css']
 })
-
-// Create Recipe class
-export class Recipe {
-  constructor(
-    public name: string,
-    public ingredients: string,
-    public prep_time: number,
-    public cook_time: number,
-    public yield_amount: number,
-    public yield_unit: string,
-    public prep_inst: string,
-    public cook_inst: string
-  ) {}
-}
 
 export class RecipeUploadComponent {
   http: any;
@@ -49,5 +35,28 @@ export class RecipeUploadComponent {
           console.log('An error occurred while saving the recipe:', error);
         }
       );
+  }
+}
+
+// Create Recipe class
+export class Recipe {
+  constructor(
+    public name: string,
+    public ingredients: string,
+    public prep_time: number,
+    public cook_time: number,
+    public yield_amount: number,
+    public yield_unit: string,
+    public prep_inst: string,
+    public cook_inst: string
+  ) {
+    this.name = name;
+    this.ingredients = ingredients;
+    this.prep_time = prep_time;
+    this.cook_time = cook_time;
+    this.yield_amount = yield_amount;
+    this.yield_unit = yield_unit;
+    this.prep_inst = prep_inst;
+    this.cook_inst = cook_inst;
   }
 }

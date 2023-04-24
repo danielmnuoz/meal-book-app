@@ -176,6 +176,7 @@ export class CalendarComponent {
   }  
 }
 
+/* // FOR TESTING
 var newId = 4
 var newTest = {'name':null, 'id':newId, 'result':null}
 
@@ -188,6 +189,7 @@ var tests = [
 for (var i in tests){
   addRow(tests[i])
 }
+*/
 
 function addRow(obj: any){
   obj.classList.remove("hidden");

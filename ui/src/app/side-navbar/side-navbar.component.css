@@ -7,7 +7,7 @@ mat-sidenav {
   background-color: #283618;
   border-right: none;
   color: white;
-  width: 200px;
+  width: 250px;
   padding: 20px;
   border-radius: 10px;
   height: 100%;
@@ -31,11 +31,6 @@ mat-icon  {
   margin: 8px;
 }
 
-span {
-  color: white;
-  font-weight: lighter;
-}
-
 mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -54,4 +49,10 @@ mat-sidenav-content{
   background-color: #FEFAE0;
 }
 
-
+a, p, span, button {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 12pt;
+  white-space: nowrap;
+}
