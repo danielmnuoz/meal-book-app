@@ -1,9 +1,49 @@
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 <div class="row text-center">
+    <div class="col-md-4">
+        <div class="btn-group">
+        <div
+            class="btn btn-primary"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()"
+        >
+            Previous
+        </div>
+            <div
+                class="btn btn-primary"
+                mwlCalendarToday
+                [(viewDate)]="viewDate"
+            >
+                Today
+            </div>
+            <div
+                class="btn btn-primary"
+                mwlCalendarNextView
+                [view]="view"
+                [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()"
+            >
+                Next
+            </div>
+        </div>
+    </div>
     <div class="col-md-4">
         <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
     </div>
     <div class="col-md-4">
         <div class="btn-group">
+            <div
+                class="btn btn-primary"
+                (click)="setView(CalendarView.Month)"
+                [class.active]="view === CalendarView.Month"
+            >
+                Month
+            </div>
             <div
                 class="btn btn-primary"
                 (click)="setView(CalendarView.Week)"
@@ -13,24 +53,193 @@
             </div>
             <div
                 class="btn btn-primary"
-                (click)="setView(CalendarView.Month)"
-                [class.active]="view === CalendarView.Month"
+                (click)="setView(CalendarView.Day)"
+                [class.active]="view === CalendarView.Day"
             >
-                Month
+                Day
             </div>
         </div>
     </div>
 </div>
 <br />
 <div [ngSwitch]="view">
-    <mwl-calendar-week-view
-        *ngSwitchCase="CalendarView.Week"
-        [viewDate]="viewDate"
-    >
-    </mwl-calendar-week-view>
     <mwl-calendar-month-view
         *ngSwitchCase="CalendarView.Month"
         [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+        *ngSwitchCase="CalendarView.Week"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+        *ngSwitchCase="CalendarView.Day"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-day-view>
 </div>
+
+<br /><br /><br />
+
+<!--
+<h3>
+    Meals
+    <button class="btn btn-primary float-end" (click)="addEvent()">
+        Add New
+    </button>
+    <button *ngIf="events.length > 0" class="btn btn-primary float-end" (click)="editEvents()">
+        Edit
+    </button>
+    <div class="clearfix"></div>
+</h3>
+
+<div *ngIf="events.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Meal</th>
+                <th>Food Eaten</th>
+                <th>Date & Time</th>
+                <th></th> 
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let event of events">
+                <select class="dropdown" id="mealOption">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                </select>
+                <td>
+                    <input 
+                        id="foodsEaten"
+                        type="text"
+                        class="form-control"
+                        (keyup)="refresh.next()"
+                    />
+                </td>
+                <td>
+                    <form action="/action_page.php">
+                        <input type="datetime-local" id="datetime">
+                    </form>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteEvent(event)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+<ng-template #elseBlock>Nothing yet.</ng-template>
+  
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Event action occurred</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            Action:
+            <pre>{{ modalData.action }}</pre>
+        </div>
+        <div>
+            Event:
+            <pre>{{ modalData.event | json }}</pre>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">
+            OK
+        </button>
+    </div>
+</ng-template>-->
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="card card-body">
+
+            <button onclick="myFunction()">Try it</button>
+
+            <div id="myDIV" class="mystyle">
+            This is a DIV element.
+            </div>
+
+			<!-- Form Wrapper & Button -->
+			<button class="btn btn-sm btn-primary" id="add-test" >Add Meal</button>
+			<div class="form-wrapper hidden">
+				<select class="form-control" id="test-name">
+					<option>----------</option>
+					<option>Breakfast</option>
+					<option>Lunch</option>
+					<option>Dinner</option>
+                    <option>Snack</option>
+				</select>
+				<input class="form-control" type="text" id="test-result">
+				<button class="btn btn-sm btn-info" id="create-test">Add</button>
+			</div>
+
+			<!-- Data Table -->
+			<table class="table table-dark">
+			  <thead>
+			    <tr>
+			      <th scope="col">Meal</th>
+			      <th scope="col">Food</th>
+
+			    </tr>
+			  </thead>
+			  <tbody id="tests-table">
+			    
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+    $('#add-test').on('click', function(){
+        $('.form-wrapper').removeClass('hidden')
+    })
+
+    $('#test-result').on('keyup', function(){
+        newTest.result = $(this).val()
+        console.log(newTest)
+    })
+
+    $('#test-name').on('change', function(){
+        newTest.name = $(this).val()
+        console.log(newTest)
+    })
+
+    $('#create-test').on('click', function(){
+        if(newTest.name == null){
+            alert('No test selected!')
+        }else{
+            addRow(newTest)
+            $('#test-name').val('')
+            $('#test-result').val('')
+            ('.form-wrapper').addClass('hidden')
+        }
+    })
+</script>

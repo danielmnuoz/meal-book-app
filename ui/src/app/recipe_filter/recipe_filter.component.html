@@ -1,0 +1,26 @@
+<div ng-app='filter' ng-cloak>
+    <md-toolbar layout-padding>
+      <h2>Filtering with Angular Filters</h2>
+    </md-toolbar>
+    <div layout="row" ng-controller="angularController as ctrl">
+      <div flex="20" class="sidebar" layout-padding>
+        <div ng-repeat="filter in Filters">
+          <h3 class="sort">{{filter.name}}</h3>
+          <ul class="sortoptions">
+            <li ng-repeat="option in filter.options">
+              <input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"> {{option.value}}
+              <span>({{option.count}})</span>
+            </li>
+          </ul>
+        </div>
+        <md-button class="md-raised" ng-click="ctrl.toggleAll($event, false)">Uncheck All</md-button>
+        <br/>
+        <md-button class="md-raised" ng-click="ctrl.toggleAll($event, true)">Check All</md-button>
+     </div>
+      <div flex="50" layout="row">
+        <md-card flex ng-repeat="fruit in Fruits | dynamicFilter:Filters:this" class="product">
+          {{fruit.name}}
+        </md-card>
+      </div>
+    </div>
+  </div>
