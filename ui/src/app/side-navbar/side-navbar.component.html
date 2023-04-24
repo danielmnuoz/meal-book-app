@@ -1,15 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+  <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
     <mat-icon *ngIf="sidenav.opened ">close</mat-icon>
   </button>
-  <app-navbar></app-navbar>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav">
-
-
-
     <button mat-button class = "sidenav-menu-button">
       <mat-icon>menu_book</mat-icon>
       <span>Your Recipes</span>
@@ -27,7 +23,4 @@
       <span> Your Profile</span>
     </button>
   </mat-sidenav>
-  <mat-sidenav-content>
-    basic body, where content is displayed
-  </mat-sidenav-content>
 </mat-sidenav-container>
