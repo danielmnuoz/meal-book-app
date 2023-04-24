@@ -17,6 +17,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { RecipeUploadComponent } from './recipe-upload/recipe-upload.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import {  FlatpickrModule } from 'angularx-flatpickr';
@@ -29,7 +31,8 @@ import {  FlatpickrModule } from 'angularx-flatpickr';
     LoginComponent,
     DashboardComponent,
     CalendarComponent,
-    SideNavbarComponent
+    SideNavbarComponent,
+    RecipeUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {  FlatpickrModule } from 'angularx-flatpickr';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    HttpClientModule,
     NoopAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,

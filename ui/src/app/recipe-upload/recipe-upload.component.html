@@ -1,0 +1,28 @@
+<p>recipe-upload works!</p>
+<form #recipeForm="ngForm" (ngSubmit)="onSubmit(recipeForm)">
+    <label for="name">Name:</label>
+    <input type="text" id="title" name="title" required>
+  
+    <label for="ingredients">Ingredients:</label>
+    <textarea id="ingredients" name="ingredients" required></textarea>
+  
+    <label for="prep time in minutes">PrepTimeMin:</label>
+    <textarea id="prep time" name="prep time" required></textarea>
+
+    <label for="cooking time in minutes">CookingTimeMin:</label>
+    <textarea id="cooking time" name="cooking time" required></textarea>
+
+    <label for="yield w/o units">Yield:</label>
+    <textarea id="yield" name="yield" required></textarea>
+
+    <label for="yield unit of measurement">YieldUnit:</label>
+    <textarea id="yield unit" name="yield unit" required></textarea>
+
+    <label for="prep instructions">PrepInst:</label>
+    <textarea id="prep instructions" name="prep instructions" required></textarea>
+
+    <label for="cooking instructions">CookInst:</label>
+    <textarea id="cooking instructions" name="cooking instructions" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
