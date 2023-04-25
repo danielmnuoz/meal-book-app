@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {catchError, tap} from 'rxjs/operators';
 interface User {
   username: string;
   email: string;
@@ -14,7 +14,7 @@ interface User {
 })
 export class LoginComponent implements OnInit {
   user: User = { username: '', email: '', password: '' };
-
+  error: string | undefined;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -35,5 +35,19 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:3001/api/auth/signup', this.user).subscribe((data) => {
       console.log(data);
     });
+  }
+  login(): void {
+    this.http.post<any>('http://localhost:3001/api/auth/login', this.user)
+      .pipe(
+        tap((data) => {
+          console.log(data);
+        }),
+        catchError((error) => {
+          console.log(error);
+          this.error = error.error.message;
+          return [];
+        })
+      )
+      .subscribe();
   }
 }

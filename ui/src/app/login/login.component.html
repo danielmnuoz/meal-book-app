@@ -5,14 +5,14 @@
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
-            
+            <input type="submit" value="Login" class="btn solid" (click)="login()"/>
+            <p class="error" *ngIf="error">{{error}}</p>
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
