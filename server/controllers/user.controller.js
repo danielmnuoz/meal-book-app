@@ -23,4 +23,19 @@ exports.getUserById = async (req, res) => {
   }
 };
 
+exports.loginUser = async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    if (password !== user.password) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 // Add more controller functions for handling other HTTP requests related to users
