@@ -134,17 +134,6 @@ export class CalendarComponent {
     
   }
 
-  addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        option: document.getElementById('mealOption') as HTMLInputElement,
-        title: document.getElementById('foodsEaten') as HTMLInputElement,
-        color: this.selectMealColor(document.getElementById('mealOption')?.outerText),
-        datetime: document.getElementById('datetime') as HTMLInputElement,
-      },
-    ];
-  }
 
   // used for adding events
   // corresponds with user's choice on table dropdown
