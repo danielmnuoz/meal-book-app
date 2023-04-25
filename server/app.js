@@ -17,6 +17,7 @@ mongoose.connection.once('open', function(){
     console.log('connected to db!');
 
     const app = express();  
+    app.use(cors());
     app.use(express.json());
     app.use('/api/auth', userRoutes);   
     app.listen(3001, () => console.log('Listening to port 3001'));
